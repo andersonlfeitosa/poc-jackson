@@ -13,22 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  */
 @RestController
-public class ApiController {
+public class ApiController2 {
 
   /**
    * Expõe método HTTP GET para exibição de mensagem.
    *  
    * @return A mensagem.
    */
-  @RequestMapping(path = "/api1", method = RequestMethod.POST)
-  public String sayHello(@RequestBody(required = true) Zoo zoo) {
-    
-    Animal a = zoo.animal;
-    
+  @RequestMapping(path = "/api2", method = RequestMethod.POST)
+  public String sayHello(@RequestBody(required = true) MyDto dto) {
+        
     StringBuilder sb = new StringBuilder();
-    sb.append(a.name);
+    sb.append(dto.getName());
     sb.append("\n");
-    //sb.append(((Dog)a).barkVolume);
+    sb.append(dto.getMyProperty());
     sb.append("\n");
     
     return sb.toString();
